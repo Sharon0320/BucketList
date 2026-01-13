@@ -35,3 +35,15 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Mac DS_Store ###
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+### Dockerfile
+Dockerfile
+
+### 환경변수 파일
+.env

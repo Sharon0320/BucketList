@@ -1,9 +1,8 @@
 package sharon.bucketlist.domain.member.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.Email;
+import lombok.*;
 import sharon.bucketlist.domain.member.enums.Role;
 import sharon.bucketlist.domain.member.enums.Status;
 import sharon.bucketlist.global.entity.BaseEntity;
@@ -12,6 +11,7 @@ import sharon.bucketlist.global.entity.BaseEntity;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class Member extends BaseEntity {
 
     @Id
@@ -25,6 +25,7 @@ public class Member extends BaseEntity {
     @Column(name = "password" , nullable = false, length = 255)
     private String password;
 
+    @Email
     @Column(name = "email" , nullable = false, length = 255)
     private String email;
 
