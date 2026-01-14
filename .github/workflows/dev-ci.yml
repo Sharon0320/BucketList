@@ -1,4 +1,4 @@
-name: CI PIPELINE Build and Push Docker Image
+name: dev-ci.yml
 
 on:
   push:
