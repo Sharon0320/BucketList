@@ -67,7 +67,6 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          fingerprint: true  # 호스트 키 검증
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
             docker stop app || true
