@@ -18,6 +18,6 @@ spring:
 
 jwt:
   token:
-    secretKey: ${secret-key}
+    secretKey: ${SECRET_KEY}
     expiration:
       access: 36000000
