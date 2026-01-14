@@ -34,7 +34,7 @@ jobs:
       - name: Create application-secret.yml
         run: |
           mkdir -p src/main/resources
-          cat <<EOF > src/main/resources/application-dev.yml
+          cat <<EOF > src/main/resources/application.yml
           ${{ secrets.APPLICATION_SECRET_YML }}
           EOF
 
@@ -71,12 +71,5 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
             docker stop app || true
             docker rm app || true
-            docker run -d --name app \
-              -p 80:8080 \
-              -e SPRING_PROFILES_ACTIVE=dev \
-              -e DB_URL=${{secrets.DEV_DB_URL}} \
-              -e DB_USERNAME=${{secrets.DEV_DB_USER}} \
-              -e DB_PASSWORD=${{secrets.DEV_DB_PW}} \
-              -e JWT_TOKEN_SECRET_KEY=${{secrets.SECRET_KEY}} \
-              ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
+            docker run -d --name app -p 80:8080 ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
             docker logs -f app  # 실시간 로그
