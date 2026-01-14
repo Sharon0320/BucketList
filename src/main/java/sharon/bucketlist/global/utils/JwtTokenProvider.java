@@ -29,7 +29,7 @@ public class JwtTokenProvider {
 
 
     public JwtTokenProvider(
-            @Value("${jwt.token.SECRET_KEY}") String secret,
+            @Value("${jwt.token.secretKey}") String secret,
             @Value("${jwt.token.expiration.access}") Long accessExpiration
 
     ) {
