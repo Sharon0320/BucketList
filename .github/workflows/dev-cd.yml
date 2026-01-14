@@ -1,8 +1,8 @@
 name: dev-cd.yml
 
 on:
-  push:
-    branches: [ develop ]
+  repository_dispatch:
+    types: [trigger-cd]
 
 jobs:
   build-and-deploy:
@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/bucketlist:latest
-            docker stop ${{ secrets.DOCKERHUB_USERNAME }}/bucketlist:latest || true
-            docker rm ${{ secrets.DOCKERHUB_USERNAME }}/bucketlist:latest || true
-            docker run -d --name ${{ secrets.DOCKERHUB_USERNAME }}/bucketlist:latest -p 80:8080 ${{ secrets.DOCKERHUB_USERNAME }}/bucketlist:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
+            docker stop app || true
+            docker rm app || true
+            docker run -d --name app -p 80:8080 ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
