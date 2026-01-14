@@ -72,4 +72,3 @@ jobs:
             docker stop app || true
             docker rm app || true
             docker run -d --name app -p 80:8080 ${{ secrets.DOCKER_USERNAME }}/bucketlist:latest
-            docker logs -f app  # 실시간 로그
