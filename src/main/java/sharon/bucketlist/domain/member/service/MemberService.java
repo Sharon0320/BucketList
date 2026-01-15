@@ -36,6 +36,7 @@ public class MemberService {
         memberRepository.save(member);
 
 
+
     }
     public LoginResponse login(LoginRequest loginRequest) {
         Member member = memberRepository.findByEmail(loginRequest.getEmail()).

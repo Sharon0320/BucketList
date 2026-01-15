@@ -17,6 +17,7 @@ public class SecurityConfig {
     private final String[] swaggerUris = {
             "/swagger-ui/**", "/swagger-ui.html",
             "/v3/api-docs/**", "/swagger-resources/**",
+            "/oauth2", "*"
 
     };
 
@@ -33,6 +34,7 @@ public class SecurityConfig {
                         .requestMatchers(swaggerUris).permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/v1/**").permitAll()
+                        .requestMatchers("/oauth2/**").permitAll()
                         .anyRequest().authenticated()
                 );
 

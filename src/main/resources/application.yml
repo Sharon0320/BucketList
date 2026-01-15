@@ -21,3 +21,10 @@ jwt:
     secretKey: ${secret-key}
     expiration:
       access: 36000000
+
+kakao:
+  client-id: ${KAKAO_CLIENT_ID:f8c3d1e2a6bef68fce37e73b796621f2}
+  client-secret: ${KAKAO_CLIENT_SECRET:eN6PuD2e9Vo86Ctp9Nis9fcPpexKqDTr}
+  redirect-uri: http://localhost:8080/redirect
+  kauth-host: https://kauth.kakao.com
+  kapi-host: https://kapi.kakao.com
